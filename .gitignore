@@ -4,6 +4,7 @@
 .Ruserdata
 /dados_parquet
 inst/doc
+/doc/
 /doc/*.R
 /doc/*.Rmd
 /Meta/
