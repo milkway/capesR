@@ -1,6 +1,7 @@
 library(arrow)
 library(dplyr)
-
+library(stringr)
+library(rlang)
 #' Buscar termos nos campos textuais dos dados Catálogo de Teses e Dissertações da Fundação Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)
 #'
 #' Esta função permite buscar termos específicos nos campos textuais do Catálogo de Teses e Dissertações da CAPES.
@@ -16,7 +17,6 @@ library(dplyr)
 #' @importFrom rlang sym
 #' @importFrom arrow open_dataset
 #' @importFrom utils download.file
-#' @importFrom magrittr %>%
 #' @export
 buscar_texto_capes <- function(termo, campo, anos, destino = tempdir()) {
   # Validar entrada
@@ -56,7 +56,7 @@ buscar_texto_capes <- function(termo, campo, anos, destino = tempdir()) {
 
     # Filtrar pelo termo no campo especificado
     resultado <- dataset %>%
-      dplyr::filter(stringr::str_detect(rlang::sym(campo), stringr::fixed(termo, ignore_case = TRUE))) %>%
+      dplyr::filter(stringr::str_detect(get(campo), stringr::fixed(termo, ignore_case = TRUE))) %>%
       as.data.frame()
 
     # Adicionar ao resultado
