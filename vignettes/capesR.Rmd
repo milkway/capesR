@@ -34,11 +34,7 @@ Este pacote automatiza o processo de obtenção e organização desses dados, to
 Para instalar o pacote, use:
 
 ```r
-# Se disponível no CRAN:
-install.packages("capesR")
-
-# Ou instale diretamente do GitHub:
-devtools::install_github("usuario/capesR")
+devtools::install_github("hugoavmedeiros/capesR")
 ```
 
 # Baixando dados
@@ -62,6 +58,45 @@ dados <- ler_dados_capes(arquivos)
 head(dados)
 ```
 
+# Dados Sintéticos
+O pacote também fornece um conjunto de dados sintéticos, df_capes_sintetico, que contém informações agregadas do Catálogo de Teses e Dissertações. Esses dados foram sintetizados para facilitar análises rápidas e prototipagem, sem a necessidade de baixar e processar arquivos completos.
+
+## Estrutura dos Dados
+Os dados sintéticos incluem as seguintes colunas:
+
+- ano_base: Ano base do dado.
+- ies: Instituição de Ensino Superior.
+- area: Área de Concentração.
+- nome_programa: Nome do Programa de Pós-graduação.
+- tipo: Tipo do trabalho (ex.: Mestrado, Doutorado).
+- regiao: Região do Brasil.
+- uf: Unidade Federativa (estado).
+- n: Número total de trabalhos.
+
+## Carregando os Dados
+Os dados sintéticos estão disponíveis diretamente no pacote e podem ser carregados com o comando:
+
+```r
+data(df_capes_sintetico)
+
+# Visualizar as primeiras linhas dos dados
+head(df_capes_sintetico)
+```
+## Exemplo de Uso
+Você pode utilizar os dados sintéticos para criar análises exploratórias ou gráficos rápidos:
+
+```r
+# Carregar os dados
+data(df_capes_sintetico)
+
+# Exemplo: Contagem por ano e tipo de trabalho
+library(dplyr)
+df_capes_sintetico %>%
+  group_by(ano_base, tipo) %>%
+  summarise(total = sum(n)) %>%
+  arrange(desc(total))
+```
+
 # Conclusão
 
 Este tutorial apresentou os passos básicos para utilizar o pacote **capesR**. Para mais informações sobre as funções disponíveis, consulte a documentação com:
@@ -69,4 +104,5 @@ Este tutorial apresentou os passos básicos para utilizar o pacote **capesR**. P
 ```r
 ?baixar_dados_capes
 ?ler_dados_capes
+?df_capes_sintetico
 ```

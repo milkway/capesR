@@ -11,5 +11,5 @@ Você pode instalar este pacote diretamente do GitHub com:
 install.packages("remotes")
 
 # Instale o capesR a partir do GitHub
-remotes::install_github("seu_usuario/capesR")
+remotes::install_github("hugoavmedeiros/capesR")
 ```
