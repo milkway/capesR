@@ -2,23 +2,20 @@
 % Please edit documentation in R/buscar_texto_capes.R
 \name{buscar_texto_capes}
 \alias{buscar_texto_capes}
-\title{Buscar termos nos campos textuais dos dados Catálogo de Teses e Dissertações da Fundação Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)}
+\title{Buscar termos nos campos textuais dos dados do Catálogo de Teses e Dissertações da CAPES}
 \usage{
-buscar_texto_capes(termo, campo, anos, destino = tempdir())
+buscar_texto_capes(dados, termo, campo)
 }
 \arguments{
+\item{dados}{`data.frame` contendo os dados do Catálogo de Teses e Dissertações da CAPES.}
+
 \item{termo}{string, termo a ser buscado.}
 
 \item{campo}{string, nome do campo onde buscar (ex.: "resumo", "titulo").}
-
-\item{anos}{vetor de anos a serem considerados na busca.}
-
-\item{destino}{diretório onde os arquivos estão ou serão salvos (padrão: `tempdir()`).}
 }
 \value{
-um `data.frame` com as linhas que correspondem à busca.
+um `data.frame` com as linhas que correspondem à busca ou uma mensagem informando que nenhum resultado foi encontrado.
 }
 \description{
-Esta função permite buscar termos específicos nos campos textuais do Catálogo de Teses e Dissertações da CAPES.
-Caso os arquivos ainda não estejam disponíveis no diretório especificado, eles serão baixados automaticamente.
+Esta função permite buscar termos específicos nos campos textuais de um `data.frame` previamente carregado.
 }

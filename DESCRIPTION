@@ -17,7 +17,6 @@ Imports:
     arrow,
     dplyr,
     stringr,
-    rlang,
     magrittr,
     utils
 Suggests: 

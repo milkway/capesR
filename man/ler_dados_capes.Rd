@@ -2,16 +2,18 @@
 % Please edit documentation in R/ler_dados_capes.R
 \name{ler_dados_capes}
 \alias{ler_dados_capes}
-\title{Ler arquivos Parquet baixados e combinar os dados}
+\title{Ler e filtrar dados do Catálogo de Teses e Dissertações da CAPES}
 \usage{
-ler_dados_capes(arquivos)
+ler_dados_capes(arquivos, filtros = list())
 }
 \arguments{
-\item{arquivos}{Lista de caminhos dos arquivos Parquet}
+\item{arquivos}{vetor ou lista de caminhos dos arquivos Parquet.}
+
+\item{filtros}{lista de filtros para aplicar (ex.: list(ano_base = 1987, uf = "SP")).}
 }
 \value{
-Data frame combinado com todos os dados lidos
+um `data.frame` contendo os dados combinados e filtrados.
 }
 \description{
-Ler arquivos Parquet baixados e combinar os dados
+Esta função combina os dados de múltiplos arquivos Parquet e aplica filtros opcionais.
 }

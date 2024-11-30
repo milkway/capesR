@@ -18,22 +18,24 @@ remotes::install_github("hugoavmedeiros/capesR")
 
 Veja a [vinheta completa](doc/capesR.html) para exemplos detalhados de uso.
 
-# Baixando dados
+# Principais funções
+
+## Baixar dados
 
 A função `baixar_dados_capes` permite baixar arquivos de dados da CAPES hospedados no OSF. Você pode especificar os anos desejados, e os arquivos correspondentes serão salvos localmente.
 
-## Exemplo:
+### Exemplo:
 ```r
 library(capesR)
 
 # Baixar dados dos anos 1987 e 1990
-arquivos <- baixar_dados_capes(c(1987, 1990))
+arquivos_capes <- baixar_dados_capes(c(1987, 1990))
 ```
-## Reutilizando os Dados
+## Reutilização dos dados
 
 Recomenda-se definir um diretório persistente para armazenar os dados baixados, como `dados_capes`, em vez de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
 
-Por exemplo:
+### Exemplo:
 
 ```r
 # Definir o diretório onde os dados serão armazenados
@@ -45,13 +47,41 @@ arquivos_capes <- baixar_dados_capes(
   destino = 'dados_capes')
 ```
 
-# Combinando os dados
-Use a função ler_dados_capes para combinar os arquivos baixados:
+## Combinar dados
+Use a função ler_dados_capes para combinar os arquivos baixados
 
-## Exemplo:
+### Exemplo 1
+Combinação sem filtros.
+
 ```r
-dados <- ler_dados_capes(arquivos)
-head(dados)
+dados_capes <- ler_dados_capes(arquivos_capes)
+head(dados_capes)
+```
+
+### Exemplo 2
+Combinação com filtros, que são aplicados antes de os dados serem lidos, melhorando a performance. 
+
+```r
+# indique os filtros
+filtros <- list(ano_base = c(1987), uf = c("PE", "CE"))
+
+# Carregar e filtrar os dados
+dados_filtrados <- ler_dados_capes(arquivos_capes, filtros)
+
+# Visualizar os resultados filtrados
+head(dados_filtrados)
+```
+
+## Realizar buscas
+Use a função buscar_texto_capes para realizar buscas de texto nos campos textuais (titulo, resumo, autoria e orientacao)
+
+### Exemplo:
+```r
+resultados <- buscar_texto_capes(
+  dados = dados_capes,
+  termo = "educacao",
+  campo = "titulo"
+)
 ```
 
 # Dados Sintéticos
