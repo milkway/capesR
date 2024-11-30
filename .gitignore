@@ -4,7 +4,8 @@
 .Ruserdata
 /dados_parquet
 inst/doc
-/doc/
+/doc/*.R
+/doc/*.Rmd
 /Meta/
 local_config.R
 capesR.Rproj

@@ -48,6 +48,21 @@ library(capesR)
 # Baixar dados dos anos 1987 e 1990
 arquivos <- baixar_dados_capes(c(1987, 1990))
 ```
+## Reutilizando os Dados
+
+Recomenda-se definir um diretório persistente para armazenar os dados baixados, como `dados_capes`, em vez de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
+
+Por exemplo:
+
+```r
+# Definir o diretório onde os dados serão armazenados
+diretorio_dados <- "/dados_capes"
+
+# Buscar pelo termo "educação" no campo "titulo" para os anos 1987 e 1990
+arquivos_capes <- baixar_dados_capes(
+  c(1987, 1990),
+  destino = 'dados_capes')
+```
 
 # Combinando os dados
 Use a função ler_dados_capes para combinar os arquivos baixados:

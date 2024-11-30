@@ -13,3 +13,7 @@ install.packages("remotes")
 # Instale o capesR a partir do GitHub
 remotes::install_github("hugoavmedeiros/capesR")
 ```
+
+## Documentação
+
+Veja a [vinheta completa](doc/capesR.html) para exemplos detalhados de uso.
