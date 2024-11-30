@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/dados_parquet
+inst/doc
+/doc/
+/Meta/
+local_config.R

@@ -1,0 +1,72 @@
+---
+title: "capesR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{capesR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(capesR)
+```
+
+# Introdução
+
+O pacote **capesR** foi desenvolvido para facilitar o acesso e a manipulação dos dados do Catálogo de Teses e Dissertações da CAPES. Este catálogo contém informações sobre teses e dissertações defendidas em instituições de ensino superior no Brasil, com variáveis como:
+
+- **IES**: Instituição de Ensino Superior.
+- **Área de Concentração**: Área acadêmica do trabalho.
+- **Região e UF**: Local onde a pesquisa foi conduzida.
+- **Resumo do Trabalho**: Breve descrição do tema e objetivos.
+
+Este pacote automatiza o processo de obtenção e organização desses dados, tornando-os acessíveis para análises e relatórios.
+
+# Instalação
+
+Para instalar o pacote, use:
+
+```r
+# Se disponível no CRAN:
+install.packages("capesR")
+
+# Ou instale diretamente do GitHub:
+devtools::install_github("usuario/capesR")
+```
+
+# Baixando dados
+
+A função `baixar_dados_capes` permite baixar arquivos de dados da CAPES hospedados no OSF. Você pode especificar os anos desejados, e os arquivos correspondentes serão salvos localmente.
+
+## Exemplo:
+```r
+library(capesR)
+
+# Baixar dados dos anos 1987 e 1990
+arquivos <- baixar_dados_capes(c(1987, 1990))
+```
+
+# Combinando os dados
+Use a função ler_dados_capes para combinar os arquivos baixados:
+
+## Exemplo:
+```r
+dados <- ler_dados_capes(arquivos)
+head(dados)
+```
+
+# Conclusão
+
+Este tutorial apresentou os passos básicos para utilizar o pacote **capesR**. Para mais informações sobre as funções disponíveis, consulte a documentação com:
+
+```r
+?baixar_dados_capes
+?ler_dados_capes
+```
