@@ -17,6 +17,7 @@ library(rlang)
 #' @importFrom rlang sym
 #' @importFrom arrow open_dataset
 #' @importFrom utils download.file
+#' @importFrom magrittr %>%
 #' @export
 buscar_texto_capes <- function(termo, campo, anos, destino = tempdir()) {
   # Validar entrada
