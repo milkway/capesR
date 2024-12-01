@@ -8,6 +8,10 @@ library(arrow)
 #' @importFrom utils data download.file
 #' @export
 baixar_dados_capes <- function(anos, destino = tempdir()) {
+
+  # Ajustar o timeout globalmente
+  options(timeout = 120)  # Timeout de 120 segundos
+
   # Carregar o dataset anos_osf
   data("anos_osf", package = "capesR", envir = environment())
 

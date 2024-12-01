@@ -9,11 +9,11 @@ ler_dados_capes(arquivos, filtros = list())
 \arguments{
 \item{arquivos}{vetor ou lista de caminhos dos arquivos Parquet.}
 
-\item{filtros}{lista de filtros para aplicar (ex.: list(ano_base = 1987, uf = "SP")).}
+\item{filtros}{lista de filtros para aplicar (ex.: list(ano_base = 1987, uf = "SP", titulo = "educação")).}
 }
 \value{
 um `data.frame` contendo os dados combinados e filtrados.
 }
 \description{
-Esta função combina os dados de múltiplos arquivos Parquet e aplica filtros opcionais.
+Esta função combina os dados de múltiplos arquivos Parquet e aplica filtros opcionais, incluindo buscas textuais.
 }

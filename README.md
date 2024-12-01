@@ -1,6 +1,10 @@
 # capesR
 
-**capesR** é um pacote R para acessar e manipular dados do Catálogo de Teses e Dissertações da CAPES.
+**capesR** é um pacote R para facilitar o acesso e a manipulação dos dados do Catálogo de Teses e Dissertações da Fundação Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), com informações sobre teses e dissertações defendidas em instituições de ensino superior (IES) no Brasil .
+
+Os dados originais da Capes estão disponíveis em [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil).
+
+Os dados utilizados no pacote estão disponíveis no repositório do [The Open Science Framework (OSF)](https://osf.io/4a5b7/).
 
 ## Instalação
 
@@ -23,13 +27,18 @@ A função `baixar_dados_capes` permite baixar arquivos de dados da CAPES hosped
 #### Exemplo:
 ```r
 library(capesR)
+library(dplyr)
 
 # Baixar dados dos anos 1987 e 1990
 arquivos_capes <- baixar_dados_capes(c(1987, 1990))
+
+# Visualizar a lista de arquivos baixados
+arquivos_capes %>% glimpse()
 ```
+
 ### Reutilização dos dados
 
-Recomenda-se definir um diretório persistente para armazenar os dados baixados, como `dados_capes`, em vez de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
+Recomenda-se definir um diretório persistente para armazenar os dados baixados, ao invés de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
 
 #### Exemplo:
 
@@ -37,10 +46,10 @@ Recomenda-se definir um diretório persistente para armazenar os dados baixados,
 # Definir o diretório onde os dados serão armazenados
 diretorio_dados <- "/dados_capes"
 
-# Buscar pelo termo "educação" no campo "titulo" para os anos 1987 e 1990
+# Baixar dados dos anos 1987 e 1990 com indicação de diretório persistente
 arquivos_capes <- baixar_dados_capes(
   c(1987, 1990),
-  destino = 'dados_capes')
+  destino = diretorio_dados)
 ```
 
 ### Combinar dados
@@ -50,22 +59,47 @@ Use a função ler_dados_capes para combinar os arquivos baixados
 Combinação sem filtros.
 
 ```r
-dados_capes <- ler_dados_capes(arquivos_capes)
-head(dados_capes)
+# Combinar todos os dados selecionados, sem uso de filtros
+dados_sem_filtro <- ler_dados_capes(arquivos_capes)
+
+# Visualizar os dados combinados
+dados_sem_filtro %>% glimpse()
 ```
 
 #### Exemplo 2
-Combinação com filtros, que são aplicados antes de os dados serem lidos, melhorando a performance. 
+Combinação dos dados com filtros exatos
+Os filtros  são aplicados antes de os dados serem lidos, melhorando a performance. 
 
 ```r
-# indique os filtros
-filtros <- list(ano_base = c(1987), uf = c("PE", "CE"))
+# Crie um objeto com os filtros 
+filtro_exato <- list(
+  ano_base = c(2021, 2022),
+  uf = c("PE", "CE")
+)
 
-# Carregar e filtrar os dados
-dados_filtrados <- ler_dados_capes(arquivos_capes, filtros)
+# Combinar os dados já filtrados
+dados_filtro_exato <- ler_dados_capes(arquivos_capes, filtro_exato)
 
-# Visualizar os resultados filtrados
-head(dados_filtrados)
+# Visualizar os dados combinados
+dados_filtro_exato %>% glimpse()
+```
+
+#### Exemplo 3
+Combinação dos dados com filtros de texto
+
+```r
+# Crie um objeto com os filtros 
+filtro_texto <- list(
+  ano_base = c(2018, 2019, 2020, 2021, 2022),
+  uf = c("PE", "CE"),
+  titulo = "educacao"
+)
+
+# Combinar os dados já filtrados
+dados_filtro_texto <- ler_dados_capes(arquivos_capes, filtro_texto)
+
+# Visualizar os dados combinados
+dados_filtro_texto %>% glimpse()
 ```
 
 ### Realizar buscas
