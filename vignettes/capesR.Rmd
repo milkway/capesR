@@ -41,13 +41,14 @@ Para instalar o pacote, use:
 devtools::install_github("hugoavmedeiros/capesR")
 ```
 
-# Principais funções
+# Funções
 
 ## Baixar dados
 
 A função `baixar_dados_capes` permite baixar arquivos de dados da CAPES hospedados no OSF. Você pode especificar os anos desejados, e os arquivos correspondentes serão salvos localmente.
 
-### Exemplo:
+### Exemplo 1
+Baixar dados usando o diretório temporário (padrão da função)
 ```r
 library(capesR)
 library(dplyr)
@@ -58,12 +59,11 @@ arquivos_capes <- baixar_dados_capes(c(1987, 1990))
 # Visualizar a lista de arquivos baixados
 arquivos_capes %>% glimpse()
 ```
+Neste caso, os dados não irão persistir para usos futuros. 
 
-## Reutilização dos dados
+### Exemplo 2 - Reutilização dos dados
 
-Recomendados definir um diretório persistente para armazenar os dados baixados, ao invés de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
-
-### Exemplo:
+Recomenda-se definir um diretório persistente para armazenar os dados baixados, ao invés de usar o diretório temporário padrão (`tempdir()`). Isso permitirá reusar os dados no futuro. 
 
 ```r
 # Definir o diretório onde os dados serão armazenados
@@ -74,12 +74,12 @@ arquivos_capes <- baixar_dados_capes(
   c(1987, 1990),
   destino = diretorio_dados)
 ```
+No caso da utilização de um diretório persistente, os dados serão baixados apenas uma vez. Nos usos posteriores a função informará quais arquivos já existem no diretório, e montará apenas a lista com o endereço dos dados disponíveis. 
 
 ## Combinar dados
-Use a função ler_dados_capes para combinar os arquivos baixados
+Use a função ler_dados_capes para combinar os arquivos baixados a partir de uma lista de arquivos gerada com a função `baixar_dados_capes` ou construída manualmente. 
 
-### Exemplo 1
-Combinação sem filtros.
+### Exemplo 1 - Combinação sem filtros
 
 ```r
 # Combinar todos os dados selecionados, sem uso de filtros
@@ -89,8 +89,7 @@ dados_sem_filtro <- ler_dados_capes(arquivos_capes)
 dados_sem_filtro %>% glimpse()
 ```
 
-### Exemplo 2
-Combinação dos dados com filtros exatos
+### Exemplo 2 - Combinação dos dados com filtros exatos
 Os filtros  são aplicados antes de os dados serem lidos, melhorando a performance. 
 
 ```r
@@ -107,8 +106,8 @@ dados_filtro_exato <- ler_dados_capes(arquivos_capes, filtro_exato)
 dados_filtro_exato %>% glimpse()
 ```
 
-### Exemplo 3
-Combinação dos dados com filtros de texto
+### Exemplo 3 - Combinação dos dados com filtros de texto
+Os filtros exatos são aplicados antes de os dados serem lidos, melhorando a performance, e o filtro de texto é otimizado para acelerar a busca nos dados. 
 
 ```r
 # Crie um objeto com os filtros 
@@ -126,7 +125,7 @@ dados_filtro_texto %>% glimpse()
 ```
 
 ## Realizar buscas
-Use a função buscar_texto_capes para realizar buscas de texto nos campos textuais (titulo, resumo, autoria e orientacao)
+Para realizar buscas de texto em dados já combinados, você pode usar a  função `buscar_texto_capes` informando o termo e o campo de texto  (titulo, resumo, autoria e orientacao)
 
 ### Exemplo:
 ```r
@@ -136,11 +135,11 @@ resultados <- buscar_texto_capes(
   campo = "titulo"
 )
 ```
-
-# Dados Sintéticos
+# Dados
+## Dados Sintéticos
 O pacote também fornece um conjunto de dados sintéticos, df_capes_sintetico, que contém informações agregadas do Catálogo de Teses e Dissertações. Esses dados foram sintetizados para facilitar análises rápidas e prototipagem, sem a necessidade de baixar e processar arquivos completos.
 
-## Estrutura dos Dados
+### Estrutura dos Dados
 Os dados sintéticos incluem as seguintes colunas:
 
 - ano_base: Ano base do dado.
@@ -152,7 +151,7 @@ Os dados sintéticos incluem as seguintes colunas:
 - uf: Unidade Federativa (estado).
 - n: Número total de trabalhos.
 
-## Carregando os Dados
+### Carregando os Dados
 Os dados sintéticos estão disponíveis diretamente no pacote e podem ser carregados com o comando:
 
 ```r
@@ -161,7 +160,7 @@ data(df_capes_sintetico)
 # Visualizar as primeiras linhas dos dados
 head(df_capes_sintetico)
 ```
-## Exemplo de Uso
+### Exemplo de Uso
 Você pode utilizar os dados sintéticos para criar análises exploratórias ou gráficos rápidos:
 
 ```r
