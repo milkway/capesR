@@ -1,5 +1,9 @@
 # capesR
 
+![devel version](https://img.shields.io/badge/devel%20version-0.1.0-yellow)
+![License](https://img.shields.io/badge/license-GPL--3-blue)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://hugoavmedeiros.github.io/capesR/)
+
 **capesR** é um pacote R para facilitar o acesso e a manipulação dos dados do Catálogo de Teses e Dissertações da Fundação Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), com informações sobre teses e dissertações defendidas em instituições de ensino superior (IES) no Brasil .
 
 Os dados originais da Capes estão disponíveis em [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil).
