@@ -11,3 +11,4 @@ inst/doc
 local_config.R
 capesR.Rproj
 docs
+.DS_Store
