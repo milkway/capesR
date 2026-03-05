@@ -126,6 +126,10 @@ results <- search_capes_text(
 
 ## Data
 
+## Anos Disponíveis
+
+Atualmente, o pacote `capesR` oferece dados abrangendo os anos de 1987 a 2024.
+
 ### Synthetic Data
 
 The package also provides a set of synthetic data, `capes_synthetic_df`, which contains aggregated information from the CAPES Catalog of Theses and Dissertations. These synthetic data simplify quick analyses and prototyping without requiring full data downloads and processing.
@@ -169,3 +173,11 @@ capes_synthetic_df %>%
   summarise(total = sum(n)) %>%
   arrange(desc(total))
 ```
+---
+## Disclaimer
+
+This package is an independent, open-source project and is **not**, in any way, affiliated with, endorsed by, or officially connected to the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
+
+All data retrieved through this package is sourced from [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br) and remains the intellectual property of CAPES. 
+
+The data is provided **as-is**, without warranty of any kind. The package authors are not responsible for the accuracy, completeness, or timeliness of the data. For official statistics and methodology, always refer to [www.gov.br/capes](https://www.gov.br/capes/pt-br).
