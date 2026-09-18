@@ -1,4 +1,4 @@
-url: https://github.com/hugoavmedeiros/capesR
+url: https://milkway.github.io/capesR/
 template:
   light-switch: false
   dark-mode: false
@@ -13,7 +13,7 @@ navbar:
   components:
     github:
       icon: fa-github
-      href: https://github.com/hugoavmedeiros/capesR
+      href: https://github.com/milkway/capesR
       aria-label: Github
 
 development:

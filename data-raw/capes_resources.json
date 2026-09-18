@@ -1,0 +1,268 @@
+{
+  "068003e4-196c-41f4-8c35-1f7c94b4e55c": {
+    "dataset": "2021-a-2024-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "BR-CAPES-BTD-2021-2025-03-31",
+    "last_modified": "2025-03-25",
+    "size": 454790974,
+    "url": "https://dadosabertos.capes.gov.br/dataset/dbb9b83e-7779-4b99-89d2-1ff8099f36f6/resource/068003e4-196c-41f4-8c35-1f7c94b4e55c/download/br-capes-btd-2021-2025-03-31.csv"
+  },
+  "78f73608-6f5e-463c-ba79-0bff4f8a578d": {
+    "dataset": "2021-a-2024-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "BR-CAPES-BTD-2022-2025-03-31",
+    "last_modified": "2025-03-25",
+    "size": 462809043,
+    "url": "https://dadosabertos.capes.gov.br/dataset/dbb9b83e-7779-4b99-89d2-1ff8099f36f6/resource/78f73608-6f5e-463c-ba79-0bff4f8a578d/download/br-capes-btd-2022-2025-03-31.csv"
+  },
+  "b69baf26-8d02-4c10-ba39-7e9ab799e6ed": {
+    "dataset": "2021-a-2024-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "BR-CAPES-BTD-2023-2025-03-31",
+    "last_modified": "2025-03-25",
+    "size": 504963035,
+    "url": "https://dadosabertos.capes.gov.br/dataset/dbb9b83e-7779-4b99-89d2-1ff8099f36f6/resource/b69baf26-8d02-4c10-ba39-7e9ab799e6ed/download/br-capes-btd-2023-2025-03-31.csv"
+  },
+  "87133ba7-ac99-4d87-966e-8f580bc96231": {
+    "dataset": "2021-a-2024-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "BR-CAPES-BTD-2024-2025-12-01",
+    "last_modified": "2025-11-19",
+    "size": 506649988,
+    "url": "https://dadosabertos.capes.gov.br/dataset/dbb9b83e-7779-4b99-89d2-1ff8099f36f6/resource/87133ba7-ac99-4d87-966e-8f580bc96231/download/br-capes-btd-2024-2025-12-01.csv"
+  },
+  "d88871ae-6e54-490c-96bb-9740e250d3f2": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1987-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/d88871ae-6e54-490c-96bb-9740e250d3f2/download/dados_1987.csv"
+  },
+  "c93c429c-3fc5-4f2e-99fc-8a29c14c1f97": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1988-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/c93c429c-3fc5-4f2e-99fc-8a29c14c1f97/download/dados_1988.csv"
+  },
+  "dc28638b-a089-48d3-94c1-076a92ef618b": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1989-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/dc28638b-a089-48d3-94c1-076a92ef618b/download/dados_1989.csv"
+  },
+  "89ab63cf-50ea-492a-aa6b-e44141f2393d": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1990-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/89ab63cf-50ea-492a-aa6b-e44141f2393d/download/dados_1990.csv"
+  },
+  "3dad8374-ea20-4719-a7f3-ee422ef2052d": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1991-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/3dad8374-ea20-4719-a7f3-ee422ef2052d/download/dados_1991.csv"
+  },
+  "d634ba12-a4b1-41a2-a00d-94deaf2cdef5": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1992-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/d634ba12-a4b1-41a2-a00d-94deaf2cdef5/download/dados_1992.csv"
+  },
+  "14707275-88e1-4ccf-a856-b06705f71775": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1993-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/14707275-88e1-4ccf-a856-b06705f71775/download/dados_1993.csv"
+  },
+  "de7bfb29-1567-4a5c-8dd6-fb3928670b6b": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1994-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/de7bfb29-1567-4a5c-8dd6-fb3928670b6b/download/dados_1994.csv"
+  },
+  "8b8d7773-fea6-48bb-b528-e201021d8d92": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1995-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/8b8d7773-fea6-48bb-b528-e201021d8d92/download/dados_1995.csv"
+  },
+  "05d53c4b-4566-476c-8c25-754a94d8a30c": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1996-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/05d53c4b-4566-476c-8c25-754a94d8a30c/download/dados_1996.csv"
+  },
+  "96510eba-30c7-436c-91f7-808550a98d11": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1997-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/96510eba-30c7-436c-91f7-808550a98d11/download/dados_1997.csv"
+  },
+  "9e60a625-7c27-47f3-a7e9-7f4db4171422": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1998-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/9e60a625-7c27-47f3-a7e9-7f4db4171422/download/dados_1998.csv"
+  },
+  "cdace9a4-29de-4a1a-a935-a695a69c1c50": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-1999-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/cdace9a4-29de-4a1a-a935-a695a69c1c50/download/dados_1999.csv"
+  },
+  "6cb47471-ffc1-44e0-b60b-324993dc0e8f": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2000-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/6cb47471-ffc1-44e0-b60b-324993dc0e8f/download/dados_2000.csv"
+  },
+  "b6ab4de3-6d51-4073-8452-5c29eaf48e94": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2001-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/b6ab4de3-6d51-4073-8452-5c29eaf48e94/download/dados_2001.csv"
+  },
+  "28bcef08-3743-4400-a215-57cb10c5b72e": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2002-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/28bcef08-3743-4400-a215-57cb10c5b72e/download/dados_2002.csv"
+  },
+  "993b0bd7-7855-4fc1-838c-ed4ccc4e43fe": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2003-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/993b0bd7-7855-4fc1-838c-ed4ccc4e43fe/download/dados_2003.csv"
+  },
+  "3eb161a2-d94d-409f-8da4-9899fcaae5a6": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2004-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/3eb161a2-d94d-409f-8da4-9899fcaae5a6/download/dados_2004.csv"
+  },
+  "8cc24314-564c-4365-8bfd-30129dee9962": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2005-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/8cc24314-564c-4365-8bfd-30129dee9962/download/dados_2005.csv"
+  },
+  "d3f6882d-9315-4af4-8704-32a0684c57b9": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2006-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/d3f6882d-9315-4af4-8704-32a0684c57b9/download/dados_2006.csv"
+  },
+  "6bda3a7e-f723-40cd-90a2-691e9b443b66": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2007-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/6bda3a7e-f723-40cd-90a2-691e9b443b66/download/dados_2007.csv"
+  },
+  "62d40710-1f7d-4415-b7a0-40f069c4b035": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2008-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/62d40710-1f7d-4415-b7a0-40f069c4b035/download/dados_2008.csv"
+  },
+  "6606dc23-4a6b-4bc0-991c-4d29691ed307": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2009-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/6606dc23-4a6b-4bc0-991c-4d29691ed307/download/dados_2009.csv"
+  },
+  "859ea6a8-2967-4856-bd18-fdeaa7220ccb": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2010-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/859ea6a8-2967-4856-bd18-fdeaa7220ccb/download/dados_2010.csv"
+  },
+  "e37189cd-204c-43ad-8d8d-9ba3821336b0": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2011-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/e37189cd-204c-43ad-8d8d-9ba3821336b0/download/dados_2011.csv"
+  },
+  "14fe8b64-b861-42dc-92a2-be603e925e21": {
+    "dataset": "1987-a-2012-catalogo-de-teses-e-dissertacoes-brasil",
+    "name": "CAPES-BTD-2012-2019-11-01",
+    "last_modified": "2021-02-18",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/b59bd607-7422-4b37-bedc-0e6c1b96bee2/resource/14fe8b64-b861-42dc-92a2-be603e925e21/download/dados_2012.csv"
+  },
+  "49155638-ffc6-4782-a3ca-489bb4345324": {
+    "dataset": "catalogo-de-teses-e-dissertacoes-de-2013-a-2016",
+    "name": "br-capes-btd-2013a2016-2017-12-01_2013",
+    "last_modified": "2022-01-28",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/4b0780eb-5ba4-48d4-8d6a-0b77c56f2fd7/resource/49155638-ffc6-4782-a3ca-489bb4345324/download/br-capes-btd-2013a2016-2017-12-01_2013.csv"
+  },
+  "bf1a79a5-ac49-44e8-b4a5-eca30fb48174": {
+    "dataset": "catalogo-de-teses-e-dissertacoes-de-2013-a-2016",
+    "name": "br-capes-btd-2013a2016-2017-12-01_2014",
+    "last_modified": "2022-01-28",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/4b0780eb-5ba4-48d4-8d6a-0b77c56f2fd7/resource/bf1a79a5-ac49-44e8-b4a5-eca30fb48174/download/br-capes-btd-2013a2016-2017-12-01_2014.csv"
+  },
+  "e4e2325f-6638-42b3-b801-03c418970a9e": {
+    "dataset": "catalogo-de-teses-e-dissertacoes-de-2013-a-2016",
+    "name": "br-capes-btd-2013a2016-2017-12-01_2015",
+    "last_modified": "2022-01-28",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/4b0780eb-5ba4-48d4-8d6a-0b77c56f2fd7/resource/e4e2325f-6638-42b3-b801-03c418970a9e/download/br-capes-btd-2013a2016-2017-12-01_2015.csv"
+  },
+  "7403d9ac-0e71-4539-bc44-8d7aa7b8f452": {
+    "dataset": "catalogo-de-teses-e-dissertacoes-de-2013-a-2016",
+    "name": "br-capes-btd-2013a2016-2017-12-01_2016",
+    "last_modified": "2022-01-28",
+    "size": null,
+    "url": "https://dadosabertos.capes.gov.br/dataset/4b0780eb-5ba4-48d4-8d6a-0b77c56f2fd7/resource/7403d9ac-0e71-4539-bc44-8d7aa7b8f452/download/br-capes-btd-2013a2016-2017-12-01_2016.csv"
+  },
+  "902bd63b-137f-4090-89e9-cab94f12c41d": {
+    "dataset": "2017-2020-catalogo-de-teses-e-dissertacoes-da-capes",
+    "name": "br-capes-btd-2017-2024-08-19",
+    "last_modified": "2024-08-21",
+    "size": 449944414,
+    "url": "https://dadosabertos.capes.gov.br/dataset/36d1c92c-f9e0-4da1-a4f0-633e6ebefe03/resource/902bd63b-137f-4090-89e9-cab94f12c41d/download/br-capes-btd-2017-2024-08-19.csv"
+  },
+  "638668a6-07da-4c7e-8aab-9044ae3cc753": {
+    "dataset": "2017-2020-catalogo-de-teses-e-dissertacoes-da-capes",
+    "name": "br-capes-btd-2018-2024-08-19",
+    "last_modified": "2024-08-21",
+    "size": 480506868,
+    "url": "https://dadosabertos.capes.gov.br/dataset/36d1c92c-f9e0-4da1-a4f0-633e6ebefe03/resource/638668a6-07da-4c7e-8aab-9044ae3cc753/download/br-capes-btd-2018-2024-08-19.csv"
+  },
+  "8f4f2bce-2744-460a-8f14-f1648c7a16df": {
+    "dataset": "2017-2020-catalogo-de-teses-e-dissertacoes-da-capes",
+    "name": "br-capes-btd-2019-2025-04-29",
+    "last_modified": "2025-04-30",
+    "size": 505605381,
+    "url": "https://dadosabertos.capes.gov.br/dataset/36d1c92c-f9e0-4da1-a4f0-633e6ebefe03/resource/8f4f2bce-2744-460a-8f14-f1648c7a16df/download/br-capes-btd-2019-2025-04-29.csv"
+  },
+  "e37df31a-f250-4405-8b21-ca7e5c7c1696": {
+    "dataset": "2017-2020-catalogo-de-teses-e-dissertacoes-da-capes",
+    "name": "br-capes-btd-2020-2024-08-19",
+    "last_modified": "2024-08-21",
+    "size": 435618836,
+    "url": "https://dadosabertos.capes.gov.br/dataset/36d1c92c-f9e0-4da1-a4f0-633e6ebefe03/resource/e37df31a-f250-4405-8b21-ca7e5c7c1696/download/br-capes-btd-2020-2024-08-19.csv"
+  }
+}

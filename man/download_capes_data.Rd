@@ -5,22 +5,38 @@
 \alias{baixar_dados_capes}
 \title{Download CAPES Data}
 \usage{
-download_capes_data(years, destination = tempdir(), timeout = 120)
+download_capes_data(
+  years,
+  destination = tempdir(),
+  timeout = 120,
+  base_url = getOption("capesR.base_url")
+)
 
-baixar_dados_capes(years, destination = tempdir(), timeout = 120)
+baixar_dados_capes(
+  years,
+  destination = tempdir(),
+  timeout = 120,
+  base_url = getOption("capesR.base_url")
+)
 }
 \arguments{
-\item{years}{A vector with the desired years.}
+\item{years}{A vector with the desired years (1987-2024).}
 
 \item{destination}{The directory where the files will be saved (default: temporary directory).}
 
 \item{timeout}{The timeout in seconds for the download process (default: 120 seconds).}
+
+\item{base_url}{Optional base URL of a mirror hosting the files listed in
+[capes_years]. Defaults to `getOption("capesR.base_url")`; when `NULL`,
+the `url` column of [capes_years] is used.}
 }
 \value{
-A list of file paths for the downloaded or already existing files.
+A named list (by year) of file paths for the downloaded or already existing files.
 }
 \description{
-Downloads CAPES theses and dissertations data files from OSF for selected years.
+Downloads the yearly Parquet files of the CAPES Catalog of Theses and
+Dissertations for the selected years. The file list and download URLs come
+from [capes_years].
 }
 \examples{
 \donttest{

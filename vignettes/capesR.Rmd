@@ -32,21 +32,23 @@ This package automates the process of obtaining and organizing this data, making
 
 The original CAPES data is available at [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil).
 
-The data used in this package is hosted in the [The Open Science Framework (OSF)](https://osf.io/4a5b7/).
+The yearly Parquet files used by this package are hosted on [Hugging Face](https://huggingface.co/datasets/mlkwy/capesR). The file index, with URLs and checksums, is shipped in the package as `capes_years`.
 
 # Installation
 
 To install the package, use:
 
 ```r
-devtools::install_github("hugoavmedeiros/capesR")
+install.packages("capesR")
+# or the development version:
+devtools::install_github("milkway/capesR")
 ```
 
 # Functions
 
 ## Download Data
 
-The `download_capes_data` function allows you to download CAPES data files hosted on OSF. You can specify the desired years, and the corresponding files will be saved locally.
+The `download_capes_data` function downloads the yearly CAPES data files. You can specify the desired years, and the corresponding files will be saved locally. To use a mirror, set `options(capesR.base_url = "https://my.mirror/path")` or pass `base_url =` directly.
 
 ### Example 1
 Download data using the temporary directory (function default):
@@ -194,7 +196,7 @@ capes_synthetic_df %>%
 This tutorial presented the basic steps to use the **capesR** package. For more information about the available functions, consult the documentation with:
 
 ```r
-?years_osf
+?capes_years
 ?capes_synthetic_df
 ?download_capes_data
 ?search_capes_text

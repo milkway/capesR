@@ -1,0 +1,45 @@
+name: Check CAPES data updates
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"   # monthly, 1st day, 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare CAPES portal with snapshot
+        id: diff
+        run: |
+          set +e
+          python3 data-raw/check_capes_updates.py > diff.md
+          echo "changed=$?" >> "$GITHUB_OUTPUT"
+          cat diff.md
+
+      - name: Open issue if there are new or revised files
+        if: steps.diff.outputs.changed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          existing=$(gh issue list --label "capes-data" --state open --json number --jq '.[0].number')
+          {
+            echo "O portal de dados abertos da CAPES tem arquivos novos ou revisados em relação ao snapshot em \`data-raw/capes_resources.json\`:"
+            echo
+            cat diff.md
+            echo
+            echo "Para atualizar: baixe os CSVs para \`dados_raw/\`, rode \`Rscript data-raw/build_parquet.R <anos>\`, suba os parquets ao Hugging Face (\`data-raw/upload_data.sh\`), rode \`Rscript data-raw/capes_years.R\` e por fim \`python3 data-raw/check_capes_updates.py --update\`. Feche esta issue ao terminar."
+          } > body.md
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file body.md
+          else
+            gh label create capes-data --color 0E8A16 --description "Novos dados no portal da CAPES" --force
+            gh issue create --title "Novos dados da CAPES ($(date -u +%Y-%m))" --label capes-data --body-file body.md
+          fi

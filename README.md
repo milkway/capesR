@@ -3,33 +3,39 @@
 
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/capesR)&nbsp; 
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/capesR)&nbsp;
-![devel version](https://img.shields.io/badge/devel%20version-0.1.0-yellow)&nbsp; 
+![devel version](https://img.shields.io/badge/devel%20version-0.2.0-yellow)&nbsp; 
 ![License](https://img.shields.io/badge/license-GPL--3-blue)&nbsp; 
-[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://hugoavmedeiros.github.io/capesR/)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://milkway.github.io/capesR/)
 
 **capesR** is an R package designed to facilitate access to and manipulation of data from the Catalog of Theses and Dissertations maintained by the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES). This catalog contains information about theses and dissertations defended at higher education institutions (HEIs) in Brazil.
 
 The original CAPES data is available at [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil).
 
-The data used in this package is available in the repository of the [The Open Science Framework (OSF)](https://osf.io/4a5b7/).
+The yearly Parquet files used by this package are hosted on [Hugging Face](https://huggingface.co/datasets/mlkwy/capesR). The file index, with URLs and checksums, is shipped in the package as `capes_years`.
 
 ## Installation
 
-You can install this package directly from GitHub with:
+From CRAN:
+
+```r
+install.packages("capesR")
+```
+
+Or the development version from GitHub:
 
 ```r
 # Install the remotes package if not already installed
 install.packages("remotes")
 
 # Install capesR from GitHub
-remotes::install_github("hugoavmedeiros/capesR")
+remotes::install_github("milkway/capesR")
 ```
 
 ## Functions
 
 ### Download Data
 
-The `download_capes_data` function allows you to download CAPES data files hosted on OSF. You can specify the desired years, and the corresponding files will be saved locally.
+The `download_capes_data` function downloads the yearly CAPES data files. You can specify the desired years, and the corresponding files will be saved locally. To use a mirror, set `options(capesR.base_url = "https://my.mirror/path")` or pass `base_url =` directly.
 
 #### Example 1
 Download data using the temporary directory (default):

@@ -1,16 +1,16 @@
 Type: Package
 Package: capesR
 Title: Access to CAPES Data
-Version: 0.1.0
-Date: 2024-12-17
+Version: 0.2.0
+Date: 2026-09-18
 Authors@R: c(
-            person("Hugo", "Vasconcelos Medeiros", email = "hugo.medeiros@ufpe.br", role = c("aut", "cre")),
-            person("Dalson", "Figueiredo Filho", email = "dalson.figueiredofo@ufpe.br", role = "aut"),
-            person("André", "Leite", email = "leite@castlab.org", role = "aut")
+            person("André", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
+            person("Hugo", "Vasconcelos Medeiros", email = "hugoavmedeiros@gmail.com", role = "aut"),
+            person("Dalson", "Figueiredo Filho", email = "dalson.figueiredofo@ufpe.br", role = "aut")
             )
 Description: Provides simplified access to the data from the Catalog of Theses and Dissertations 
     of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, <https://catalogodeteses.capes.gov.br>) 
-    for the years 1987 through 2022. The dataset includes variables such as Higher Education 
+    for the years 1987 through 2024. The dataset includes variables such as Higher Education 
     Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), 
     Type of Work (type), Language of Work (language), Author Identification (author), Abstract 
     (abstract), Advisor Identification (advisor), Development Region (region), State (state).
@@ -18,7 +18,6 @@ License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0.0)
-RoxygenNote: 7.3.2
 Imports:
     arrow,
     dplyr,
@@ -30,5 +29,7 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: <https://github.com/hugoavmedeiros/capesR>
+URL: https://github.com/milkway/capesR, https://milkway.github.io/capesR/
+BugReports: https://github.com/milkway/capesR/issues
 Config/Needs/website: tidyverse/tidytemplate
+Config/roxygen2/version: 8.0.0
