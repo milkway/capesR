@@ -10,6 +10,8 @@
 * When nothing matches, `search_capes_text()` returns an empty `data.frame` with
   the same columns as the input (previously a `data.frame` with no columns).
 * Added unit tests (testthat).
+* Repository moved to <https://github.com/StrategicProjects/capesR>, which now
+  also holds the history of the original hugoavmedeiros/capesR repository.
 
 # capesR 0.2.0
 

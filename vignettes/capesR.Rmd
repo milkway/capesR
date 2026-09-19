@@ -41,7 +41,7 @@ To install the package, use:
 ```r
 install.packages("capesR")
 # or the development version:
-devtools::install_github("milkway/capesR")
+devtools::install_github("StrategicProjects/capesR")
 ```
 
 # Functions

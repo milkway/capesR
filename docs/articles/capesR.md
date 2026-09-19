@@ -1,6 +1,6 @@
 # capesR
 
-[`library`](https://rdrr.io/r/base/library.html)`(`[`capesR`](https://github.com/milkway/capesR)`)`
+[`library`](https://rdrr.io/r/base/library.html)`(`[`capesR`](https://github.com/StrategicProjects/capesR)`)`
 
 ## Introduction
 
@@ -30,7 +30,7 @@ with URLs and checksums, is shipped in the package as `capes_years`.
 
 To install the package, use:
 
-[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"capesR"``)`` ``# or the development version:`` ``devtools``::`[`install_github`](https://devtools.r-lib.org/reference/install-deprecated.html)`(``"milkway/capesR"``)`
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"capesR"``)`` ``# or the development version:`` ``devtools``::`[`install_github`](https://devtools.r-lib.org/reference/install-deprecated.html)`(``"StrategicProjects/capesR"``)`
 
 ## Functions
 
@@ -46,7 +46,7 @@ will be saved locally. To use a mirror, set
 
 Download data using the temporary directory (function default):
 
-[`library`](https://rdrr.io/r/base/library.html)`(`[`capesR`](https://github.com/milkway/capesR)`)`` `[`library`](https://rdrr.io/r/base/library.html)`(`[`dplyr`](https://dplyr.tidyverse.org)`)`` `` ``# Download data for 1987 and 1990`` ``capes_files`` ``<-`` `[`download_capes_data`](https://milkway.github.io/capesR/reference/download_capes_data.md)`(`[`c`](https://rdrr.io/r/base/c.html)`(``1987``, ``1990``)``)`` `` ``# View the list of downloaded files`` ``capes_files`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
+[`library`](https://rdrr.io/r/base/library.html)`(`[`capesR`](https://github.com/StrategicProjects/capesR)`)`` `[`library`](https://rdrr.io/r/base/library.html)`(`[`dplyr`](https://dplyr.tidyverse.org)`)`` `` ``# Download data for 1987 and 1990`` ``capes_files`` ``<-`` `[`download_capes_data`](https://strategicprojects.github.io/capesR/reference/download_capes_data.md)`(`[`c`](https://rdrr.io/r/base/c.html)`(``1987``, ``1990``)``)`` `` ``# View the list of downloaded files`` ``capes_files`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
 
 In this case, the data will not persist for future uses.
 
@@ -57,7 +57,7 @@ downloaded data instead of using the default temporary directory
 ([`tempdir()`](https://rdrr.io/r/base/tempfile.html)). This will allow
 you to reuse the data in the future.
 
-`# Define the directory to store the data`` ``data_directory`` ``<-`` ``"/capes_data"`` `` ``# Download data for 1987 and 1990 using a persistent directory`` ``capes_files`` ``<-`` `[`download_capes_data`](https://milkway.github.io/capesR/reference/download_capes_data.md)`(`` `` `[`c`](https://rdrr.io/r/base/c.html)`(``1987``, ``1990``)``,`` `` destination ``=`` ``data_directory``)`
+`# Define the directory to store the data`` ``data_directory`` ``<-`` ``"/capes_data"`` `` ``# Download data for 1987 and 1990 using a persistent directory`` ``capes_files`` ``<-`` `[`download_capes_data`](https://strategicprojects.github.io/capesR/reference/download_capes_data.md)`(`` `` `[`c`](https://rdrr.io/r/base/c.html)`(``1987``, ``1990``)``,`` `` destination ``=`` ``data_directory``)`
 
 When using a persistent directory, the data will be downloaded only
 once. In future uses, the function will identify which files already
@@ -71,20 +71,20 @@ created.
 
 #### Example 1 - Combining Data Without Filters
 
-`# Combine all selected data without using filters`` ``combined_data`` ``<-`` `[`read_capes_data`](https://milkway.github.io/capesR/reference/read_capes_data.md)`(``capes_files``)`` `` ``# View the combined data`` ``combined_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
+`# Combine all selected data without using filters`` ``combined_data`` ``<-`` `[`read_capes_data`](https://strategicprojects.github.io/capesR/reference/read_capes_data.md)`(``capes_files``)`` `` ``# View the combined data`` ``combined_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
 
 #### Example 2 - Combining Data with Exact Filters
 
 Filters are applied before the data is read, improving performance.
 
-`# Create an object with filters`` ``exact_filter`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` base_year ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``2021``, ``2022``)``,`` `` state ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"PE"``, ``"CE"``)`` ``)`` `` ``# Combine filtered data`` ``filtered_data`` ``<-`` `[`read_capes_data`](https://milkway.github.io/capesR/reference/read_capes_data.md)`(``capes_files``, ``exact_filter``)`` `` ``# View the filtered data`` ``filtered_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
+`# Create an object with filters`` ``exact_filter`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` base_year ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``2021``, ``2022``)``,`` `` state ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"PE"``, ``"CE"``)`` ``)`` `` ``# Combine filtered data`` ``filtered_data`` ``<-`` `[`read_capes_data`](https://strategicprojects.github.io/capesR/reference/read_capes_data.md)`(``capes_files``, ``exact_filter``)`` `` ``# View the filtered data`` ``filtered_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
 
 #### Example 3 - Combining Data with Text Filters
 
 Exact filters are applied before reading the data for better
 performance, and the text filter is optimized to accelerate the search.
 
-`# Create an object with filters`` ``text_filter`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` base_year ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``2018``, ``2019``, ``2020``, ``2021``, ``2022``)``,`` `` state ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"PE"``, ``"CE"``)``,`` `` title ``=`` ``"education"`` ``)`` `` ``# Combine filtered data`` ``text_filtered_data`` ``<-`` `[`read_capes_data`](https://milkway.github.io/capesR/reference/read_capes_data.md)`(``capes_files``, ``text_filter``)`` `` ``# View the filtered data`` ``text_filtered_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
+`# Create an object with filters`` ``text_filter`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` base_year ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``2018``, ``2019``, ``2020``, ``2021``, ``2022``)``,`` `` state ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"PE"``, ``"CE"``)``,`` `` title ``=`` ``"education"`` ``)`` `` ``# Combine filtered data`` ``text_filtered_data`` ``<-`` `[`read_capes_data`](https://strategicprojects.github.io/capesR/reference/read_capes_data.md)`(``capes_files``, ``text_filter``)`` `` ``# View the filtered data`` ``text_filtered_data`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`glimpse`](https://pillar.r-lib.org/reference/glimpse.html)`(``)`
 
 ### Search Text
 
@@ -95,7 +95,7 @@ is literal and case-insensitive.
 
 #### Example:
 
-`# Titles mentioning "Educação"`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"Educação"``,`` `` field ``=`` ``"titulo"`` ``)`` `` ``# Titles or abstracts mentioning either synonym`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"varicela"``, ``"catapora"``)``,`` `` field ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"titulo"``, ``"resumo"``)`` ``)`` `` ``# Abstracts mentioning both terms`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"saúde"``, ``"escola"``)``,`` `` field ``=`` ``"resumo"``,`` `` match ``=`` ``"all"`` ``)`
+`# Titles mentioning "Educação"`` ``results`` ``<-`` `[`search_capes_text`](https://strategicprojects.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"Educação"``,`` `` field ``=`` ``"titulo"`` ``)`` `` ``# Titles or abstracts mentioning either synonym`` ``results`` ``<-`` `[`search_capes_text`](https://strategicprojects.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"varicela"``, ``"catapora"``)``,`` `` field ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"titulo"``, ``"resumo"``)`` ``)`` `` ``# Abstracts mentioning both terms`` ``results`` ``<-`` `[`search_capes_text`](https://strategicprojects.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"saúde"``, ``"escola"``)``,`` `` field ``=`` ``"resumo"``,`` `` match ``=`` ``"all"`` ``)`
 
 ## Data
 

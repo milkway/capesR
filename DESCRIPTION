@@ -30,8 +30,8 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
-URL: https://github.com/milkway/capesR, https://milkway.github.io/capesR/
-BugReports: https://github.com/milkway/capesR/issues
+URL: https://github.com/StrategicProjects/capesR, https://strategicprojects.github.io/capesR/
+BugReports: https://github.com/StrategicProjects/capesR/issues
 Config/Needs/website: tidyverse/tidytemplate
 Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3

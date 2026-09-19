@@ -5,7 +5,7 @@
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/capesR)&nbsp;
 ![devel version](https://img.shields.io/badge/devel%20version-0.2.1-yellow)&nbsp; 
 ![License](https://img.shields.io/badge/license-GPL--3-blue)&nbsp; 
-[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://milkway.github.io/capesR/)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://strategicprojects.github.io/capesR/)
 
 **capesR** is an R package designed to facilitate access to and manipulation of data from the Catalog of Theses and Dissertations maintained by the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES). This catalog contains information about theses and dissertations defended at higher education institutions (HEIs) in Brazil.
 
@@ -28,7 +28,7 @@ Or the development version from GitHub:
 install.packages("remotes")
 
 # Install capesR from GitHub
-remotes::install_github("milkway/capesR")
+remotes::install_github("StrategicProjects/capesR")
 ```
 
 ## Functions
