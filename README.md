@@ -178,3 +178,11 @@ capes_synthetic_df %>%
   summarise(total = sum(n)) %>%
   arrange(desc(total))
 ```
+
+## Disclaimer
+
+This package is an independent, open-source project and is **not**, in any way, affiliated with, endorsed by, or officially connected to the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
+
+All data retrieved through this package is sourced from [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br) and remains the intellectual property of CAPES.
+
+The data is provided **as-is**, without warranty of any kind. The package authors are not responsible for the accuracy, completeness, or timeliness of the data. For official statistics and methodology, always refer to [www.gov.br/capes](https://www.gov.br/capes/pt-br).
