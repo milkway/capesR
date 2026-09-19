@@ -128,6 +128,21 @@ You can use the synthetic data for quick exploratory analyses or charts:
 
 `# Load the data`` `[`data`](https://rdrr.io/r/utils/data.html)`(``capes_synthetic_df``)`` `` ``# Example: Count by year and type of work`` `[`library`](https://rdrr.io/r/base/library.html)`(`[`dplyr`](https://dplyr.tidyverse.org)`)`` ``capes_synthetic_df`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `` `[`group_by`](https://dplyr.tidyverse.org/reference/group_by.html)`(``base_year``, ``type``)`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `` `[`summarise`](https://dplyr.tidyverse.org/reference/summarise.html)`(``total ``=`` `[`sum`](https://rdrr.io/r/base/sum.html)`(``n``)``)`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `` `[`arrange`](https://dplyr.tidyverse.org/reference/arrange.html)`(`[`desc`](https://dplyr.tidyverse.org/reference/desc.html)`(``total``)``)`
 
+## Disclaimer
+
+This package is an independent, open-source project and is **not**, in
+any way, affiliated with, endorsed by, or officially connected to the
+Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
+
+All data retrieved through this package is sourced from
+[dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br) and
+remains the intellectual property of CAPES.
+
+The data is provided **as-is**, without warranty of any kind. The
+package authors are not responsible for the accuracy, completeness, or
+timeliness of the data. For official statistics and methodology, always
+refer to [www.gov.br/capes](https://www.gov.br/capes/pt-br).
+
 # Package index
 
 ## All functions
