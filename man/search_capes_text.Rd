@@ -5,22 +5,30 @@
 \alias{buscar_texto_capes}
 \title{Search for terms in text fields of the CAPES Catalog of Theses and Dissertations data}
 \usage{
-search_capes_text(data, term, field)
+search_capes_text(data, term, field, match = c("any", "all"))
 
-buscar_texto_capes(data, term, field)
+buscar_texto_capes(data, term, field, match = c("any", "all"))
 }
 \arguments{
 \item{data}{A `data.frame` containing the CAPES Catalog of Theses and Dissertations data.}
 
-\item{term}{A string, the term to search for.}
+\item{term}{A character vector with one or more terms to search for.}
 
-\item{field}{A string, the name of the field to search in (e.g., "resumo", "titulo").}
+\item{field}{A character vector with the name(s) of the column(s) to search in
+(e.g., `"titulo"`, `c("titulo", "resumo")`).}
+
+\item{match}{How several terms combine: `"any"` (default) keeps rows where at
+least one term occurs in at least one field; `"all"` keeps rows where every
+term occurs (each in at least one of the fields).}
 }
 \value{
-A `data.frame` with rows matching the search or a message indicating no results were found.
+A `data.frame` with the matching rows. When nothing matches, an empty
+  `data.frame` with the same columns as `data` is returned with a message.
 }
 \description{
-This function allows searching for specific terms in the text fields of a previously loaded `data.frame`.
+Searches one or more terms in one or more text columns of a previously
+loaded `data.frame`. Matching is literal (not a regular expression) and
+case-insensitive.
 }
 \examples{
 \donttest{
@@ -28,11 +36,20 @@ This function allows searching for specific terms in the text fields of a previo
 capes_files <- download_capes_data(c(1987, 1990))
 # Combine all selected data
 combined_data <- read_capes_data(capes_files)
-# Search data
+# Titles mentioning "Educação"
+results <- search_capes_text(combined_data, term = "Educação", field = "titulo")
+# Titles or abstracts mentioning either synonym
 results <- search_capes_text(
-data = combined_data,
-term = "Educação",
-  field = "titulo"
+  combined_data,
+  term = c("varicela", "catapora"),
+  field = c("titulo", "resumo")
+)
+# Abstracts mentioning both terms
+results <- search_capes_text(
+  combined_data,
+  term = c("saúde", "escola"),
+  field = "resumo",
+  match = "all"
 )
 }
 }

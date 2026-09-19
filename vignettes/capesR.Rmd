@@ -134,14 +134,30 @@ text_filtered_data %>% glimpse()
 
 ## Search Text
 
-To search for text in already combined data, you can use the `search_capes_text` function, specifying the term and the text field (e.g., title, abstract, author, or advisor).
+To search for text in already combined data, you can use the `search_capes_text` function, specifying the term(s) and the text field(s) (e.g., `titulo`, `resumo`, `autoria`, `orientacao`). Matching is literal and case-insensitive.
 
 ### Example:
 ```r
+# Titles mentioning "Educação"
 results <- search_capes_text(
   data = combined_data,
-  term = "education",
-  field = "title"
+  term = "Educação",
+  field = "titulo"
+)
+
+# Titles or abstracts mentioning either synonym
+results <- search_capes_text(
+  data = combined_data,
+  term = c("varicela", "catapora"),
+  field = c("titulo", "resumo")
+)
+
+# Abstracts mentioning both terms
+results <- search_capes_text(
+  data = combined_data,
+  term = c("saúde", "escola"),
+  field = "resumo",
+  match = "all"
 )
 ```
 

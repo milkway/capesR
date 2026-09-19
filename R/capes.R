@@ -49,19 +49,49 @@ utils::globalVariables(".data")
 "capes_synthetic_df"
 
 
+# Case-insensitive literal search of `terms` in the columns `fields` of `data`.
+# Returns one logical per row: TRUE when any term (`match = "any"`) or every
+# term (`match = "all"`) occurs in at least one of the fields. NA cells never
+# match.
+text_match <- function(data, terms, fields, match = c("any", "all")) {
+  match <- match.arg(match)
+  if (!is.character(terms) || length(terms) == 0 || anyNA(terms) || any(!nzchar(terms))) {
+    stop("`term` must be a character vector with at least one non-empty string.")
+  }
+  if (!is.character(fields) || length(fields) == 0 || anyNA(fields)) {
+    stop("`field` must be a character vector with at least one column name.")
+  }
+  missing_fields <- setdiff(fields, colnames(data))
+  if (length(missing_fields) > 0) {
+    stop("The following fields do not exist in the provided `data.frame`: ",
+         paste0("'", missing_fields, "'", collapse = ", "))
+  }
+  hits <- vapply(terms, function(tm) {
+    Reduce(`|`, lapply(fields, function(f) {
+      x <- as.character(data[[f]])
+      !is.na(x) & stringr::str_detect(x, stringr::fixed(tm, ignore_case = TRUE))
+    }))
+  }, logical(nrow(data)))
+  hits <- matrix(hits, nrow = nrow(data))
+  if (match == "all") rowSums(hits) == length(terms) else rowSums(hits) > 0
+}
+
 #' Read and filter data from the CAPES Catalog of Theses and Dissertations
 #'
 #' This function combines data from multiple Parquet files and applies optional filters, including text-based searches.
 #'
 #' @param files A vector or list of paths to Parquet files.
 #' @param filters A named list of filters. Values for the text columns `titulo` and
-#'   `resumo` (or `title`/`abstract`) are matched as case-insensitive substrings;
-#'   all other columns are matched exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).
+#'   `resumo` (or `title`/`abstract`) are matched as case-insensitive substrings,
+#'   and a vector of terms keeps the rows containing any of them (e.g.,
+#'   `list(titulo = c("varicela", "catapora"))`); all other columns are matched
+#'   exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).
 #' @return A `data.frame` containing the combined and filtered data.
 #' @importFrom arrow open_dataset
 #' @importFrom dplyr filter
 #' @importFrom stringr str_detect fixed
 #' @importFrom rlang sym
+#' @importFrom magrittr %>%
 #' @examples
 #' \donttest{
 #' # Download data for the years 1987 and 1990
@@ -123,9 +153,7 @@ read_capes_data <- function(files, filters = list()) {
   for (field in intersect(names(filters), text_fields)) {
     term <- filters[[field]]
     if (is.null(term) || !is.character(term)) next
-    data <- data %>%
-      dplyr::filter(!is.na(.data[[field]]) &
-                      stringr::str_detect(.data[[field]], stringr::fixed(term, ignore_case = TRUE)))
+    data <- data[text_match(data, term, field), , drop = FALSE]
   }
   
   # Return the final data.frame
@@ -138,55 +166,62 @@ ler_dados_capes <- read_capes_data
 
 #' Search for terms in text fields of the CAPES Catalog of Theses and Dissertations data
 #'
-#' This function allows searching for specific terms in the text fields of a previously loaded `data.frame`.
+#' Searches one or more terms in one or more text columns of a previously
+#' loaded `data.frame`. Matching is literal (not a regular expression) and
+#' case-insensitive.
 #'
 #' @param data A `data.frame` containing the CAPES Catalog of Theses and Dissertations data.
-#' @param term A string, the term to search for.
-#' @param field A string, the name of the field to search in (e.g., "resumo", "titulo").
-#' @return A `data.frame` with rows matching the search or a message indicating no results were found.
-#' @importFrom dplyr filter
+#' @param term A character vector with one or more terms to search for.
+#' @param field A character vector with the name(s) of the column(s) to search in
+#'   (e.g., `"titulo"`, `c("titulo", "resumo")`).
+#' @param match How several terms combine: `"any"` (default) keeps rows where at
+#'   least one term occurs in at least one field; `"all"` keeps rows where every
+#'   term occurs (each in at least one of the fields).
+#' @return A `data.frame` with the matching rows. When nothing matches, an empty
+#'   `data.frame` with the same columns as `data` is returned with a message.
 #' @importFrom stringr str_detect fixed
-#' @importFrom magrittr %>%
 #' @examples
 #' \donttest{
 #' # Download data for the years 1987 and 1990
 #' capes_files <- download_capes_data(c(1987, 1990))
 #' # Combine all selected data
 #' combined_data <- read_capes_data(capes_files)
-#' # Search data
+#' # Titles mentioning "Educação"
+#' results <- search_capes_text(combined_data, term = "Educação", field = "titulo")
+#' # Titles or abstracts mentioning either synonym
 #' results <- search_capes_text(
-#' data = combined_data,
-#' term = "Educação",
-#'   field = "titulo"
+#'   combined_data,
+#'   term = c("varicela", "catapora"),
+#'   field = c("titulo", "resumo")
+#' )
+#' # Abstracts mentioning both terms
+#' results <- search_capes_text(
+#'   combined_data,
+#'   term = c("saúde", "escola"),
+#'   field = "resumo",
+#'   match = "all"
 #' )
 #' }
 #' @export
-search_capes_text <- function(data, term, field) {
+search_capes_text <- function(data, term, field, match = c("any", "all")) {
   # Validate input
   if (missing(data) || missing(term) || missing(field)) {
     stop("The parameters `data`, `term`, and `field` are required.")
   }
-  
+
   if (!is.data.frame(data)) {
     stop("The `data` parameter must be a `data.frame`.")
   }
-  
-  if (!field %in% colnames(data)) {
-    stop(paste("The specified field ('", field, "') does not exist in the provided `data.frame`.", sep = ""))
-  }
-  
-  # Filter for the term in the specified field
-  results <- data %>%
-    dplyr::filter(stringr::str_detect(.data[[field]], stringr::fixed(term, ignore_case = TRUE)))
-  
+
+  # Keep the rows where the terms occur in the fields
+  results <- data[text_match(data, term, field, match), , drop = FALSE]
+
   # Check if there are results
   if (nrow(results) == 0) {
     message("No results found for the search.")
-    return(data.frame())
   }
-  
-  # Return the results
-  return(results)
+
+  results
 }
 
 

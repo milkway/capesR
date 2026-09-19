@@ -1,8 +1,8 @@
 Type: Package
 Package: capesR
 Title: Access to CAPES Data
-Version: 0.2.0
-Date: 2026-09-18
+Version: 0.2.1
+Date: 2026-09-19
 Authors@R: c(
             person("André", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
             person("Hugo", "Vasconcelos Medeiros", email = "hugoavmedeiros@gmail.com", role = "aut"),
@@ -27,9 +27,11 @@ Imports:
     utils
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/milkway/capesR, https://milkway.github.io/capesR/
 BugReports: https://github.com/milkway/capesR/issues
 Config/Needs/website: tidyverse/tidytemplate
 Config/roxygen2/version: 8.0.0
+Config/testthat/edition: 3

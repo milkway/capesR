@@ -1,3 +1,16 @@
+# capesR 0.2.1 (development version)
+
+* `search_capes_text()` accepts several terms and several fields (#5,
+  hugoavmedeiros/capesR). A row is kept when any of the terms occurs in any of
+  the fields, e.g. `search_capes_text(data, c("varicela", "catapora"),
+  c("titulo", "resumo"))`; the new `match = "all"` argument requires every term
+  instead. Previously a vector in `term` raised an error.
+* `read_capes_data()` text filters (`titulo`, `resumo`) also accept a vector of
+  terms, matching rows that contain any of them.
+* When nothing matches, `search_capes_text()` returns an empty `data.frame` with
+  the same columns as the input (previously a `data.frame` with no columns).
+* Added unit tests (testthat).
+
 # capesR 0.2.0
 
 * Data updated from the CAPES open data portal: years 2023 and 2024 added, and

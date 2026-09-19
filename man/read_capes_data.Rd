@@ -13,8 +13,10 @@ ler_dados_capes(files, filters = list())
 \item{files}{A vector or list of paths to Parquet files.}
 
 \item{filters}{A named list of filters. Values for the text columns `titulo` and
-`resumo` (or `title`/`abstract`) are matched as case-insensitive substrings;
-all other columns are matched exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).}
+`resumo` (or `title`/`abstract`) are matched as case-insensitive substrings,
+and a vector of terms keeps the rows containing any of them (e.g.,
+`list(titulo = c("varicela", "catapora"))`); all other columns are matched
+exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).}
 }
 \value{
 A `data.frame` containing the combined and filtered data.

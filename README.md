@@ -3,7 +3,7 @@
 
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/capesR)&nbsp; 
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/capesR)&nbsp;
-![devel version](https://img.shields.io/badge/devel%20version-0.2.0-yellow)&nbsp; 
+![devel version](https://img.shields.io/badge/devel%20version-0.2.1-yellow)&nbsp; 
 ![License](https://img.shields.io/badge/license-GPL--3-blue)&nbsp; 
 [![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://milkway.github.io/capesR/)
 
@@ -121,15 +121,31 @@ text_filtered_data %>% glimpse()
 
 ### Search Text
 
-To search for text in already combined data, use the `search_capes_text` function, specifying the term and the text field (e.g., title, abstract, author, or advisor).
+To search for text in already combined data, use the `search_capes_text` function, specifying the term(s) and the text field(s) (e.g., `titulo`, `resumo`, `autoria`, `orientacao`). Matching is literal and case-insensitive.
 
 #### Example:
 
 ```r
+# Titles mentioning "Educação"
 results <- search_capes_text(
   data = combined_data,
   term = "Educação",
   field = "titulo"
+)
+
+# Titles or abstracts mentioning either synonym
+results <- search_capes_text(
+  data = combined_data,
+  term = c("varicela", "catapora"),
+  field = c("titulo", "resumo")
+)
+
+# Abstracts mentioning both terms
+results <- search_capes_text(
+  data = combined_data,
+  term = c("saúde", "escola"),
+  field = "resumo",
+  match = "all"
 )
 ```
 
