@@ -55,7 +55,7 @@ existing files.
 # \donttest{
 # Download data for the years 1987 and 1990
 capes_files <- download_capes_data(c(1987, 1990))
-#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpEMM0Z3/capes_1987.parquet
-#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpEMM0Z3/capes_1990.parquet
+#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmpn6bxJW/capes_1987.parquet
+#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmpn6bxJW/capes_1990.parquet
 # }
 ```

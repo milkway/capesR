@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,8 +54,10 @@
 
 <dt id="arg-filters">filters<a class="anchor" aria-label="anchor" href="#arg-filters"></a></dt>
 <dd><p>A named list of filters. Values for the text columns `titulo` and
-`resumo` (or `title`/`abstract`) are matched as case-insensitive substrings;
-all other columns are matched exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).</p></dd>
+`resumo` (or `title`/`abstract`) are matched as case-insensitive substrings,
+and a vector of terms keeps the rows containing any of them (e.g.,
+`list(titulo = c("varicela", "catapora"))`); all other columns are matched
+exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -68,8 +70,8 @@ all other columns are matched exactly (e.g., `list(ano_base = 1987, uf = "SP", t
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download data for the years 1987 and 1990</span></span></span>
 <span class="r-in"><span><span class="va">capes_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="download_capes_data.html">download_capes_data</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1987</span>, <span class="fl">1990</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpEMM0Z3/capes_1987.parquet</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpEMM0Z3/capes_1990.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmpn6bxJW/capes_1987.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmpn6bxJW/capes_1990.parquet</span>
 <span class="r-in"><span><span class="co"># Combine all selected data</span></span></span>
 <span class="r-in"><span><span class="va">combined_data</span> <span class="op">&lt;-</span> <span class="fu">read_capes_data</span><span class="op">(</span><span class="va">capes_files</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

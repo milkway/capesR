@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -208,16 +208,34 @@ search.</p>
 <h3 id="search-text">Search Text<a class="anchor" aria-label="anchor" href="#search-text"></a>
 </h3>
 <p>To search for text in already combined data, you can use the
-<code>search_capes_text</code> function, specifying the term and the
-text field (e.g., title, abstract, author, or advisor).</p>
+<code>search_capes_text</code> function, specifying the term(s) and the
+text field(s) (e.g., <code>titulo</code>, <code>resumo</code>,
+<code>autoria</code>, <code>orientacao</code>). Matching is literal and
+case-insensitive.</p>
 <div class="section level4">
 <h4 id="example">Example:<a class="anchor" aria-label="anchor" href="#example"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="co"># Titles mentioning "Educação"</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
-<span>  term <span class="op">=</span> <span class="st">"education"</span>,</span>
-<span>  field <span class="op">=</span> <span class="st">"title"</span></span>
+<span>  term <span class="op">=</span> <span class="st">"Educação"</span>,</span>
+<span>  field <span class="op">=</span> <span class="st">"titulo"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Titles or abstracts mentioning either synonym</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
+<span>  term <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"varicela"</span>, <span class="st">"catapora"</span><span class="op">)</span>,</span>
+<span>  field <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titulo"</span>, <span class="st">"resumo"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Abstracts mentioning both terms</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
+<span>  term <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"saúde"</span>, <span class="st">"escola"</span><span class="op">)</span>,</span>
+<span>  field <span class="op">=</span> <span class="st">"resumo"</span>,</span>
+<span>  match <span class="op">=</span> <span class="st">"all"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>

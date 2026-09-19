@@ -3,7 +3,7 @@
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/capesR) 
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/capesR) 
 ![devel
-version](https://img.shields.io/badge/devel%20version-0.2.0-yellow) 
+version](https://img.shields.io/badge/devel%20version-0.2.1-yellow) 
 ![License](https://img.shields.io/badge/license-GPL--3-blue) 
 [![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://milkway.github.io/capesR/)
 
@@ -86,12 +86,13 @@ filter is optimized for quick searches.
 ### Search Text
 
 To search for text in already combined data, use the `search_capes_text`
-function, specifying the term and the text field (e.g., title, abstract,
-author, or advisor).
+function, specifying the term(s) and the text field(s) (e.g., `titulo`,
+`resumo`, `autoria`, `orientacao`). Matching is literal and
+case-insensitive.
 
 #### Example:
 
-`results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"Educação"``,`` `` field ``=`` ``"titulo"`` ``)`
+`# Titles mentioning "Educação"`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"Educação"``,`` `` field ``=`` ``"titulo"`` ``)`` `` ``# Titles or abstracts mentioning either synonym`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"varicela"``, ``"catapora"``)``,`` `` field ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"titulo"``, ``"resumo"``)`` ``)`` `` ``# Abstracts mentioning both terms`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"saúde"``, ``"escola"``)``,`` `` field ``=`` ``"resumo"``,`` `` match ``=`` ``"all"`` ``)`
 
 ## Data
 

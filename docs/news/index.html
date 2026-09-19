@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,15 @@
       <small>Source: <a href="https://github.com/milkway/capesR/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.1" id="capesr-021-development-version">capesR 0.2.1 (development version)<a class="anchor" aria-label="anchor" href="#capesr-021-development-version"></a></h2>
+<ul><li>
+<code><a href="../reference/search_capes_text.html">search_capes_text()</a></code> accepts several terms and several fields (<a href="https://github.com/milkway/capesR/issues/5" class="external-link">#5</a>, hugoavmedeiros/capesR). A row is kept when any of the terms occurs in any of the fields, e.g. <code>search_capes_text(data, c("varicela", "catapora"), c("titulo", "resumo"))</code>; the new <code>match = "all"</code> argument requires every term instead. Previously a vector in <code>term</code> raised an error.</li>
+<li>
+<code><a href="../reference/read_capes_data.html">read_capes_data()</a></code> text filters (<code>titulo</code>, <code>resumo</code>) also accept a vector of terms, matching rows that contain any of them.</li>
+<li>When nothing matches, <code><a href="../reference/search_capes_text.html">search_capes_text()</a></code> returns an empty <code>data.frame</code> with the same columns as the input (previously a <code>data.frame</code> with no columns).</li>
+<li>Added unit tests (testthat).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="capesr-020">capesR 0.2.0<a class="anchor" aria-label="anchor" href="#capesr-020"></a></h2>
 <ul><li>Data updated from the CAPES open data portal: years 2023 and 2024 added, and 2019, 2021 and 2022 replaced by the revised files CAPES published in 2025 (institution names in those files now use <code>(CAMPUS)</code> instead of <code>( CAMPUS )</code>). The package now covers 1987 through 2024.</li>

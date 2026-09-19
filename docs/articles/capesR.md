@@ -89,12 +89,13 @@ performance, and the text filter is optimized to accelerate the search.
 ### Search Text
 
 To search for text in already combined data, you can use the
-`search_capes_text` function, specifying the term and the text field
-(e.g., title, abstract, author, or advisor).
+`search_capes_text` function, specifying the term(s) and the text
+field(s) (e.g., `titulo`, `resumo`, `autoria`, `orientacao`). Matching
+is literal and case-insensitive.
 
 #### Example:
 
-`results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"education"``,`` `` field ``=`` ``"title"`` ``)`
+`# Titles mentioning "Educação"`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` ``"Educação"``,`` `` field ``=`` ``"titulo"`` ``)`` `` ``# Titles or abstracts mentioning either synonym`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"varicela"``, ``"catapora"``)``,`` `` field ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"titulo"``, ``"resumo"``)`` ``)`` `` ``# Abstracts mentioning both terms`` ``results`` ``<-`` `[`search_capes_text`](https://milkway.github.io/capesR/reference/search_capes_text.md)`(`` `` data ``=`` ``combined_data``,`` `` term ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"saúde"``, ``"escola"``)``,`` `` field ``=`` ``"resumo"``,`` `` match ``=`` ``"all"`` ``)`
 
 ## Data
 
