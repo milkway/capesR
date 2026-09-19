@@ -2,56 +2,27 @@
 
 0 errors ✔ | 0 warnings ✔ | 0 notes ✔
 
-* This is a new release.
+Checked locally on macOS (R 4.6.0), including the \donttest{} examples that
+download data.
 
-## Fom Benjamin Altmann
+## Maintainer change
 
-### Comment 1
+The maintainer changed from Hugo Vasconcelos Medeiros (on CRAN record as
+<hugo.medeiros@ufpe.br>; now listed as <hugoavmedeiros@gmail.com>) to
+André Leite <leite@castlab.org>. Both are package authors; the previous
+maintainer has been asked to confirm the change by e-mail to CRAN.
 
-> Please provide a link to the used webservices (CAPES) to the description
-> field of your DESCRIPTION file in the form
-> <http:...> or <https:...>
-> with angle brackets for auto-linking and no space after 'http:' and
-> 'https:'.
-> For more details:
-> <https://contributor.r-project.org/cran-cookbook/description_issues.html#references>
+## Changes in this release (0.2.0)
 
-Link added to Description field: [...]  (CAPES, <https://catalogodeteses.capes.gov.br>) [...]. Thanks.
-
-### Comment 2
-
-> \dontrun{} should only be used if the example really cannot be executed
-> (e.g. because of missing additional software, missing API keys, ...) by
-> the user. That's why wrapping examples in \dontrun{} adds the comment
-> ("# Not run:") as a warning for the user. Does not seem necessary.
-> Please replace \dontrun with \donttest.
-> Please put functions which download data in \donttest{}.
-> For more details:
-> <https://contributor.r-project.org/cran-cookbook/general_issues.html#structuring-of-examples>
-
- I replaced the \dontrun{} block with \donttest{} for the examples. Thanks.
-
-
-### Comment 3
-
-> Please make sure that you do not change the user's options, par or
-> working directory. If you really have to do so within functions, please
-> ensure with an *immediate* call of on.exit() that the settings are reset
-> when the function is exited.
-> e.g.:
-> ...
-> old <- options() # code line i
-> on.exit(options(old)) # code line i+1
-
-Modified the download_capes_data: 
-
-```r
- # Save the current timeout and restore it on exit
-  original_timeout <- getOption("timeout")
-  on.exit(options(timeout = original_timeout))
-  
-  # Set the new timeout
-  options(timeout = timeout)
-```
-
-
+* Data coverage extended from 1987-2022 to 1987-2024 using the files published
+  by CAPES in 2025 (2023 and 2024 added; 2019, 2021 and 2022 revised).
+* The data files moved from OSF to Hugging Face
+  (<https://huggingface.co/datasets/mlkwy/capesR>). The new `capes_years`
+  dataset (year, file, url, bytes, md5) replaces `years_osf`;
+  `download_capes_data()` reads the URLs from it, gains a `base_url` argument
+  for mirrors, downloads to a temporary file and checks the file size.
+  Examples that download data remain wrapped in \donttest{} and the function
+  fails gracefully (message, no error) when a file cannot be downloaded.
+* `read_capes_data()` text search now matches the actual column names of the
+  data (`titulo`, `resumo`).
+* Package URL and BugReports moved to <https://github.com/milkway/capesR>.

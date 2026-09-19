@@ -3,30 +3,39 @@
 
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/capesR)&nbsp; 
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/capesR)&nbsp;
-![devel version](https://img.shields.io/badge/devel%20version-0.1.0-yellow)&nbsp; 
+![devel version](https://img.shields.io/badge/devel%20version-0.2.1-yellow)&nbsp; 
 ![License](https://img.shields.io/badge/license-GPL--3-blue)&nbsp; 
-[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://hugoavmedeiros.github.io/capesR/)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-blue)](https://milkway.github.io/capesR/)
 
 **capesR** is an R package designed to facilitate access to and manipulation of data from the Catalog of Theses and Dissertations maintained by the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES). This catalog contains information about theses and dissertations defended at higher education institutions (HEIs) in Brazil.
 
 The original CAPES data is available at [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil).
 
-The data used in this package is available in the repository of the [The Open Science Framework (OSF)](https://osf.io/4a5b7/).
+The yearly Parquet files used by this package are hosted on [Hugging Face](https://huggingface.co/datasets/mlkwy/capesR). The file index, with URLs and checksums, is shipped in the package as `capes_years`.
 
 ## Installation
 
-You can install this package directly from GitHub with:
+From CRAN:
 
 ```r
-# Install capesR from CRAN
-install.packages('capesR')
+install.packages("capesR")
+```
+
+Or the development version from GitHub:
+
+```r
+# Install the remotes package if not already installed
+install.packages("remotes")
+
+# Install capesR from GitHub
+remotes::install_github("milkway/capesR")
 ```
 
 ## Functions
 
 ### Download Data
 
-The `download_capes_data` function allows you to download CAPES data files hosted on OSF. You can specify the desired years, and the corresponding files will be saved locally.
+The `download_capes_data` function downloads the yearly CAPES data files. You can specify the desired years, and the corresponding files will be saved locally. To use a mirror, set `options(capesR.base_url = "https://my.mirror/path")` or pass `base_url =` directly.
 
 #### Example 1
 Download data using the temporary directory (default):
@@ -112,23 +121,35 @@ text_filtered_data %>% glimpse()
 
 ### Search Text
 
-To search for text in already combined data, use the `search_capes_text` function, specifying the term and the text field (e.g., title, abstract, author, or advisor).
+To search for text in already combined data, use the `search_capes_text` function, specifying the term(s) and the text field(s) (e.g., `titulo`, `resumo`, `autoria`, `orientacao`). Matching is literal and case-insensitive.
 
 #### Example:
 
 ```r
+# Titles mentioning "Educação"
 results <- search_capes_text(
   data = combined_data,
   term = "Educação",
   field = "titulo"
 )
+
+# Titles or abstracts mentioning either synonym
+results <- search_capes_text(
+  data = combined_data,
+  term = c("varicela", "catapora"),
+  field = c("titulo", "resumo")
+)
+
+# Abstracts mentioning both terms
+results <- search_capes_text(
+  data = combined_data,
+  term = c("saúde", "escola"),
+  field = "resumo",
+  match = "all"
+)
 ```
 
 ## Data
-
-## Anos Disponíveis
-
-Atualmente, o pacote `capesR` oferece dados abrangendo os anos de 1987 a 2024.
 
 ### Synthetic Data
 
@@ -173,11 +194,11 @@ capes_synthetic_df %>%
   summarise(total = sum(n)) %>%
   arrange(desc(total))
 ```
----
+
 ## Disclaimer
 
 This package is an independent, open-source project and is **not**, in any way, affiliated with, endorsed by, or officially connected to the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
 
-All data retrieved through this package is sourced from [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br) and remains the intellectual property of CAPES. 
+All data retrieved through this package is sourced from [dadosabertos.capes.gov.br](https://dadosabertos.capes.gov.br) and remains the intellectual property of CAPES.
 
 The data is provided **as-is**, without warranty of any kind. The package authors are not responsible for the accuracy, completeness, or timeliness of the data. For official statistics and methodology, always refer to [www.gov.br/capes](https://www.gov.br/capes/pt-br).

@@ -6,22 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Access to CAPES Data • capesR</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" sizes="any" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access to CAPES Data">
-<meta name="description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2022. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
-<meta property="og:description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2022. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
-<meta property="og:image" content="https://hugoavmedeiros.github.io/capesR/logo.png">
+<meta name="description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
+<meta property="og:description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
+<meta property="og:image" content="https://milkway.github.io/capesR/logo.png">
 <!-- See https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace — we use .replace() because we don't want the old url to appear in the browser history. --><script>
   if (!/(\/|html?)$/.test(window.location.href)){
     window.location.replace(window.location.href + '/');
@@ -36,7 +33,7 @@
 
     <a class="navbar-brand me-2" href="index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,12 +44,13 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="articles/capesR.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/hugoavmedeiros/capesR" aria-label="Github"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/milkway/capesR" aria-label="Github"><span class="fa fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -65,17 +63,23 @@
 <img src="logo.png" class="logo" alt=""><h1 id="capesr-">capesR <a class="anchor" aria-label="anchor" href="#capesr-"></a>
 </h1>
 </div>
-<p><img src="https://www.r-pkg.org/badges/version/capesR" alt="CRAN_Status_Badge">  <img src="https://cranlogs.r-pkg.org/badges/grand-total/capesR" alt="CRAN Downloads">  <img src="https://img.shields.io/badge/devel%20version-0.1.0-yellow" alt="devel version">  <img src="https://img.shields.io/badge/license-GPL--3-blue" alt="License">  <a href="https://hugoavmedeiros.github.io/capesR/"><img src="https://img.shields.io/badge/docs-pkgdown-blue" alt="Documentation"></a></p>
+<p><img src="https://www.r-pkg.org/badges/version/capesR" alt="CRAN_Status_Badge">  <img src="https://cranlogs.r-pkg.org/badges/grand-total/capesR" alt="CRAN Downloads">  <img src="https://img.shields.io/badge/devel%20version-0.2.1-yellow" alt="devel version">  <img src="https://img.shields.io/badge/license-GPL--3-blue" alt="License">  <a href="https://milkway.github.io/capesR/"><img src="https://img.shields.io/badge/docs-pkgdown-blue" alt="Documentation"></a></p>
 <p><strong>capesR</strong> is an R package designed to facilitate access to and manipulation of data from the Catalog of Theses and Dissertations maintained by the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES). This catalog contains information about theses and dissertations defended at higher education institutions (HEIs) in Brazil.</p>
 <p>The original CAPES data is available at <a href="https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil" class="external-link">dadosabertos.capes.gov.br</a>.</p>
-<p>The data used in this package is available in the repository of the <a href="https://osf.io/4a5b7/" class="external-link">The Open Science Framework (OSF)</a>.</p>
+<p>The yearly Parquet files used by this package are hosted on <a href="https://huggingface.co/datasets/mlkwy/capesR" class="external-link">Hugging Face</a>. The file index, with URLs and checksums, is shipped in the package as <code>capes_years</code>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install this package directly from GitHub with:</p>
+<p>From CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install capesR from CRAN</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'capesR'</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"capesR"</span><span class="op">)</span></span></code></pre></div>
+<p>Or the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Install the remotes package if not already installed</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install capesR from GitHub</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"milkway/capesR"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
@@ -83,13 +87,13 @@
 <div class="section level3">
 <h3 id="download-data">Download Data<a class="anchor" aria-label="anchor" href="#download-data"></a>
 </h3>
-<p>The <code>download_capes_data</code> function allows you to download CAPES data files hosted on OSF. You can specify the desired years, and the corresponding files will be saved locally.</p>
+<p>The <code>download_capes_data</code> function downloads the yearly CAPES data files. You can specify the desired years, and the corresponding files will be saved locally. To use a mirror, set <code>options(capesR.base_url = "https://my.mirror/path")</code> or pass <code>base_url =</code> directly.</p>
 <div class="section level4">
 <h4 id="example-1">Example 1<a class="anchor" aria-label="anchor" href="#example-1"></a>
 </h4>
 <p>Download data using the temporary directory (default):</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hugoavmedeiros/capesR" class="external-link">capesR</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/milkway/capesR" class="external-link">capesR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Download data for the years 1987 and 1990</span></span>
@@ -103,7 +107,7 @@
 <h4 id="example-2---reusing-data">Example 2 - Reusing Data<a class="anchor" aria-label="anchor" href="#example-2---reusing-data"></a>
 </h4>
 <p>It is recommended to define a persistent directory to store the downloaded data instead of using the default temporary directory (<code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code>). This allows you to reuse the data later.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define the directory where the data will be stored</span></span>
 <span><span class="va">data_directory</span> <span class="op">&lt;-</span> <span class="st">"/capes_data"</span></span>
 <span></span>
@@ -121,7 +125,7 @@
 <div class="section level4">
 <h4 id="example-1---combine-data-without-filters">Example 1 - Combine Data Without Filters<a class="anchor" aria-label="anchor" href="#example-1---combine-data-without-filters"></a>
 </h4>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Combine all selected data without filters</span></span>
 <span><span class="va">combined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_capes_data.html">read_capes_data</a></span><span class="op">(</span><span class="va">capes_files</span><span class="op">)</span></span>
 <span></span>
@@ -132,7 +136,7 @@
 <h4 id="example-2---combine-data-with-exact-filters">Example 2 - Combine Data with Exact Filters<a class="anchor" aria-label="anchor" href="#example-2---combine-data-with-exact-filters"></a>
 </h4>
 <p>Filters are applied before reading the data, improving performance.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a filter object</span></span>
 <span><span class="va">exact_filter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  ano_base <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2021</span>, <span class="fl">2022</span><span class="op">)</span>,</span>
@@ -149,7 +153,7 @@
 <h4 id="example-3---combine-data-with-text-filters">Example 3 - Combine Data with Text Filters<a class="anchor" aria-label="anchor" href="#example-3---combine-data-with-text-filters"></a>
 </h4>
 <p>Exact filters are applied before reading for performance, and the text filter is optimized for quick searches.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a filter object</span></span>
 <span><span class="va">text_filter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  ano_base <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2018</span>, <span class="fl">2019</span>, <span class="fl">2020</span>, <span class="fl">2021</span>, <span class="fl">2022</span><span class="op">)</span>,</span>
@@ -167,15 +171,31 @@
 <div class="section level3">
 <h3 id="search-text">Search Text<a class="anchor" aria-label="anchor" href="#search-text"></a>
 </h3>
-<p>To search for text in already combined data, use the <code>search_capes_text</code> function, specifying the term and the text field (e.g., title, abstract, author, or advisor).</p>
+<p>To search for text in already combined data, use the <code>search_capes_text</code> function, specifying the term(s) and the text field(s) (e.g., <code>titulo</code>, <code>resumo</code>, <code>autoria</code>, <code>orientacao</code>). Matching is literal and case-insensitive.</p>
 <div class="section level4">
 <h4 id="example">Example:<a class="anchor" aria-label="anchor" href="#example"></a>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Titles mentioning "Educação"</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
 <span>  term <span class="op">=</span> <span class="st">"Educação"</span>,</span>
 <span>  field <span class="op">=</span> <span class="st">"titulo"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Titles or abstracts mentioning either synonym</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
+<span>  term <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"varicela"</span>, <span class="st">"catapora"</span><span class="op">)</span>,</span>
+<span>  field <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titulo"</span>, <span class="st">"resumo"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Abstracts mentioning both terms</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_capes_text.html">search_capes_text</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">combined_data</span>,</span>
+<span>  term <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"saúde"</span>, <span class="st">"escola"</span><span class="op">)</span>,</span>
+<span>  field <span class="op">=</span> <span class="st">"resumo"</span>,</span>
+<span>  match <span class="op">=</span> <span class="st">"all"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -183,11 +203,6 @@
 <div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
-</div>
-<div class="section level2">
-<h2 id="anos-disponíveis">Anos Disponíveis<a class="anchor" aria-label="anchor" href="#anos-dispon%C3%ADveis"></a>
-</h2>
-<p>Atualmente, o pacote <code>capesR</code> oferece dados abrangendo os anos de 1987 a 2024.</p>
 <div class="section level3">
 <h3 id="synthetic-data">Synthetic Data<a class="anchor" aria-label="anchor" href="#synthetic-data"></a>
 </h3>
@@ -219,7 +234,7 @@
 <h4 id="loading-the-data">Loading the Data<a class="anchor" aria-label="anchor" href="#loading-the-data"></a>
 </h4>
 <p>The synthetic data is available directly in the package and can be loaded with:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">capes_synthetic_df</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># View the first rows of the data</span></span>
@@ -229,7 +244,7 @@
 <h4 id="example-usage">Example Usage<a class="anchor" aria-label="anchor" href="#example-usage"></a>
 </h4>
 <p>You can use the synthetic data for quick exploratory analyses or charts:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">capes_synthetic_df</span><span class="op">)</span></span>
 <span></span>
@@ -239,7 +254,6 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">base_year</span>, <span class="va">type</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">total</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<hr>
 </div>
 </div>
 </div>
@@ -255,8 +269,8 @@
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=capesR" class="external-link">View on CRAN</a></li>
-<li><a href="https://github.com/hugoavmedeiros/capesR/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/hugoavmedeiros/capesR/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/milkway/capesR/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/milkway/capesR/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -278,9 +292,9 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Hugo Vasconcelos Medeiros <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Dalson Figueiredo Filho <br><small class="roles"> Author </small>  </li>
-<li>André Leite <br><small class="roles"> Author </small>  </li>
+<li>André Leite <br><small class="roles"> Author, maintainer </small>   </li>
+<li>Hugo Vasconcelos Medeiros <br><small class="roles"> Author </small>   </li>
+<li>Dalson Figueiredo Filho <br><small class="roles"> Author </small>   </li>
 </ul>
 </div>
 
@@ -293,11 +307,11 @@
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Hugo Vasconcelos Medeiros, Dalson Figueiredo Filho, André Leite.</p>
+  <p>Developed by André Leite, Hugo Vasconcelos Medeiros, Dalson Figueiredo Filho.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
   </div></footer>

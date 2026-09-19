@@ -7,6 +7,13 @@
 ^_pkgdown\.yml$
 ^pkgdown$
 ^data-raw$
+^dados_parquet$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
-^capes_data$
+^CLAUDE\.md$
+^\.claude$
+^\.github$
+^README\.Rmd$
+^\.env$
+^dados_raw$
+^\.CLAUDE.*\.building$

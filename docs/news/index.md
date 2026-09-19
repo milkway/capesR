@@ -1,0 +1,54 @@
+# Changelog
+
+## capesR 0.2.1 (development version)
+
+- [`search_capes_text()`](https://milkway.github.io/capesR/reference/search_capes_text.md)
+  accepts several terms and several fields
+  ([\#5](https://github.com/milkway/capesR/issues/5),
+  hugoavmedeiros/capesR). A row is kept when any of the terms occurs in
+  any of the fields,
+  e.g. `search_capes_text(data, c("varicela", "catapora"), c("titulo", "resumo"))`;
+  the new `match = "all"` argument requires every term instead.
+  Previously a vector in `term` raised an error.
+- [`read_capes_data()`](https://milkway.github.io/capesR/reference/read_capes_data.md)
+  text filters (`titulo`, `resumo`) also accept a vector of terms,
+  matching rows that contain any of them.
+- When nothing matches,
+  [`search_capes_text()`](https://milkway.github.io/capesR/reference/search_capes_text.md)
+  returns an empty `data.frame` with the same columns as the input
+  (previously a `data.frame` with no columns).
+- Added unit tests (testthat).
+
+## capesR 0.2.0
+
+- Data updated from the CAPES open data portal: years 2023 and 2024
+  added, and 2019, 2021 and 2022 replaced by the revised files CAPES
+  published in 2025 (institution names in those files now use `(CAMPUS)`
+  instead of `( CAMPUS )`). The package now covers 1987 through 2024.
+- André Leite is now the package maintainer (previously Hugo Vasconcelos
+  Medeiros).
+- Data hosting moved off OSF. The yearly Parquet files are now listed in
+  the new `capes_years` dataset (year, file, url, bytes, md5), which
+  replaces `years_osf`.
+  [`download_capes_data()`](https://milkway.github.io/capesR/reference/download_capes_data.md)
+  reads the URL from that table, so the host can change without touching
+  the code.
+- [`download_capes_data()`](https://milkway.github.io/capesR/reference/download_capes_data.md)
+  gains a `base_url` argument (default `getOption("capesR.base_url")`)
+  to download from a mirror, downloads to a temporary `.part` file
+  first, checks the file size, and warns about requested years that are
+  not available.
+- [`read_capes_data()`](https://milkway.github.io/capesR/reference/read_capes_data.md)
+  text search now works on the actual column names of the data
+  (`titulo`, `resumo`); it previously only recognised `title`, so
+  `filters = list(titulo = "...")` silently matched nothing.
+- [`read_capes_data()`](https://milkway.github.io/capesR/reference/read_capes_data.md)
+  no longer loads the whole dataset into memory just to read the column
+  names.
+- Repository moved to <https://github.com/milkway/capesR>.
+
+## capesR 0.1.0
+
+CRAN release: 2024-12-19
+
+- Initial CRAN release.

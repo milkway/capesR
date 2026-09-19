@@ -1,12 +1,11 @@
-url: https://hugoavmedeiros.github.io/capesR
-destination: docs
+url: https://milkway.github.io/capesR/
 template:
   light-switch: false
   dark-mode: false
   trailing_slash_redirect: true
   package: tidytemplate
   bootstrap: 5
-  bslib: {}
+  bslib:
 
 navbar:
   structure:
@@ -14,8 +13,9 @@ navbar:
   components:
     github:
       icon: fa-github
-      href: https://github.com/hugoavmedeiros/capesR
+      href: https://github.com/milkway/capesR
       aria-label: Github
 
 development:
   mode: auto
+  
